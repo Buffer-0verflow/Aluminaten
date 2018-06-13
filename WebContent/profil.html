@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8" />
+	<!-- Change for better search engine indexing -->
+	<title>Aluminaten - Home</title>
+	<meta name="title" content="Web site" />
+	<meta name="description" content="Your Web site description here" />
+	<meta name="keywords" content="Your Web site keywords here" />
+	<meta name="subject" content="Your Web Site subject here" />
+	<meta name="copyright" content="Your company or organization" />
+	<meta name="robots" content="All" />
+	<meta name="abstract" content="Site description here" />
+	<meta name="MSSmartTagsPreventParsing" content="true" />
+	<link id="theme" rel="stylesheet" type="text/css" href="style.css" title="theme" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans+Condensed:300|Roboto+Condensed|Open+Sans+Condensed:300italic|Roboto+Condensed:300|Lora:400italic" type="text/css" />
+	<script type="text/javascript" language="javascript" src="js/jquery-1.8.1.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/scripts.js"></script>
+	<script type="text/javascript" language="javascript" src="js/theme.js"></script>
+	<script type="text/javascript" language="javascript" src="js/custom.js"></script>
+	<!-- Add your custom script here -->
+	
+	
+	<script>
+		function myfunc(){
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+			    	
+			    	var jn = JSON.parse(this.responseText);
+			    	
+			    	//var date = new Date(Date.parse(jn.geburtstag["geburtstag"]));
+			        //document.getElementById("geburtstag").innerHTML = date.toDateString(); // To solve: invalid Date issue
+			        
+			        
+			        document.getElementById("name").innerHTML = jn.vorname + " " + jn.nachname;
+			        document.getElementById("benutzername").innerHTML = jn.benutzername;
+			        document.getElementById("email").innerHTML = jn.email;
+			        document.getElementById("strasse").innerHTML = jn.adresse["strasse"];
+			        document.getElementById("plz").innerHTML = jn.adresse["plz"];			        
+			        document.getElementById("wohnort").innerHTML = jn.adresse["wohnort"];
+			       
+			    }
+			  };
+			//var cookie = document.cookie;
+			xhttp.open("GET", "http://localhost:8080/Aluminaten/Profil", true);
+			xhttp.send();
+		}
+	</script>
+	<script>myfunc();</script>
+    </head>
+    <body>
+	<div id="wrapper">
+	    <div class="bg"></div>
+	    <div class="row">
+		<div id="container-top"></div>
+	    </div>
+	    <div class="row">
+		<div id="container" class="pie">
+		    <header id="header" class="pie">
+			<div class="bg"></div>
+			<div id="logo"></div>
+			<nav>
+			<div id="hmenu">
+			<div class="dropdown">
+					<a href="home.html">
+					<button class="dropbtn">Home</button>
+		   </a>
+		 </div>
+					<div class="dropdown">
+					<button class="dropbtn">Kategorien</button>
+					<div class="dropdown-content">
+					<a href="kat1.html">Freizeit / Mode</a>
+					<a href="kat2.html">Funktionale Hüte</a>
+					<a href="kat3.hmtl">Tierische Begleiter</a>
+		   </div>
+		 </div>
+					<div class="dropdown">
+					<button class="dropbtn">Login</button>
+					<div class="dropdown-content">
+					<a href="reg.html">Registrieren</a>
+					<a href="login.html">Sign in</a>
+			</div>
+		 </div>
+					<div class="dropdown">
+					<a href="warenkorb.html">
+					<button class="dropbtn">Warenkorb</button>
+		 </a>
+		 </div>
+              </div>
+            </nav>
+			<div class="clear"></div>
+		    </header>
+		    <div id="banner">
+			<div id="tagline">
+			<h1><b>Aluhut-Shop</b></h1>
+						<p> </p>
+			<p>Protect your Mind the right way!</p>
+            </div>
+		    </div>
+		    <div id="page" class="home">
+			<div id="main">
+			    <section class="home">
+				<header class="headline">
+				    <table id="datenTabelle">
+					<tr><h3>Persönliche Daten</h3></tr>
+					<tr>
+					    <td>Name:</td>
+					    <td id="name">Vorname Nachname</td>
+					</tr>
+					<tr>
+					    <td>Benutzername:</td>
+					    <td id="benutzername">Benutzername</td>
+					</tr>
+					<tr>
+					    <td>Passwort:</td>
+					    <td>*******</td>
+					</tr>
+					<tr>
+					    <td>Geburtsdatum:</td>
+					    <td id="geburtstag">Geburtsdatum</td>
+					</tr>
+					<tr>
+					    <td>E-Mail:</td>
+					    <td id="email">E-Mail</td>
+					</tr>
+				    </table>
+				    <table id="datenTabelle">
+					<tr><h3>Adresse</h3></tr>
+					<tr>
+					    <td>Strasse:</td>
+					    <td id="strasse">Strasse</td>
+					</tr>
+					<tr>
+					    <td>PLZ:</td>
+					    <td id="plz">PLZ</td>
+					</tr>
+					<tr>
+					    <td>Wohnort:</td>
+					    <td id="wohnort">Wohnort</td>
+					</tr>
+				    </table>
+				    <a href="bearbeiten.html">
+					<button id="bearbeiten">
+					    <h4>Daten bearbeiten</h4>
+					</button>
+				    </a>
+					
+
+				    <table id="warenkorbTabelle">
+					<tr><h3>Vergangene Bestellungen</h3></tr>
+					<tr>
+					    <td><h4>Datum</h4></td>
+					    <td><h4>Produkt</h4></td>
+					    <td><h4>Menge</h4></td>
+					    <td><h4>Grösse</h4></td>
+					</tr>
+					<tr>
+					    <td>03.04.1998</td>
+					    <td>Cat Hat</td>
+					    <td>100</td>
+					    <td>M</td>
+					</tr>
+					<tr>
+					    <td>06.04.1998</td>
+					    <td>Cat Hat</td>
+					    <td>40</td>
+					    <td>S</td>
+					</tr>
+				    </table>
+				</header>
+			    </section>
+			</div>
+			<div class="clear" style="height:60px"></div>
+		    </div>
+		    <footer id="footer" class="pie">
+			<div class="bg"></div>
+			<div class="content">
+			    <p> Copyright - 2018 - Aluminaten | All Rights Reserved</p>
+			    <a href="impressum.html"> <p>Impressum</p> </a>
+			</div>
+		    </footer>
+		</div>
+	    </div>
+	    <div class="row">
+		<div id="container-bottom"></div>
+	    </div>
+	</div>
+	</div>
+	
+    </body>
+</html>
