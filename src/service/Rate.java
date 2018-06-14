@@ -4,15 +4,9 @@ import model.*;
 import dao.*;
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Collection;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,13 +33,17 @@ public class Rate extends HttpServlet {
 		response.setContentType("text/html");
         	      
 	    BewertungManager bManager = new BewertungManager();
+	    KundeManager kManager = new KundeManager();
 	    
-	    Kunde k = null;
+	    Cookie[] cookies = request.getCookies();
+
+	    
+		Kunde kunde = kManager.findById(Long.parseLong(cookies[0].getValue()));
 	    Produkt p = null;
 	    
 	    try {	    	
 	    	bManager.insertBewertung(getNextID(bManager), Integer.parseInt(request.getParameter("Rating")), 
-	    			request.getParameter("Comment"), getTime(), k, p);	   	
+	    			request.getParameter("Comment"), getTime(), kunde, p);	   	
 	    	} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

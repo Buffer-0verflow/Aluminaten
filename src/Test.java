@@ -10,7 +10,11 @@ public class Test {
 		/*KategorieManager manager = new KategorieManager();
 		for (Kategorie p : (ArrayList<Kategorie>) manager.listKategorie())
 			System.out.println(p);*/
+		
 
+		
+		
+		
 		
 	}
 	
