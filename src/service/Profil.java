@@ -2,6 +2,8 @@ package service;
 import model.*;
 import dao.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
@@ -31,16 +33,21 @@ public class Profil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     KundeManager kManager = new KundeManager();
-    
+    BestellpositionManager bManager = new BestellpositionManager();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		/* To Solve: Date issue, Session*/
-		Cookie[] cookies = request.getCookies();
+		Cookie[] cookies = request.getCookies();		
+		
+		Collection<Bestellposition> bestellung = bManager.getByKunde(Long.parseLong(cookies[0].getValue()));
 		
 		Kunde kunde = kManager.findById(Long.parseLong(cookies[0].getValue()));  	//connect to Session later
-		System.out.println(kunde);							//for debugging
+		Object[] arr = new Object[2];
+		arr[0] = kunde;
+		arr[1] = bestellung;
+		//System.out.println(kunde);							//for debugging
 		Jsonb jsonb = JsonbBuilder.create();
-		String jsn = jsonb.toJson(kunde);
+		String jsn = jsonb.toJson(arr);
 		System.out.println(jsn);							//for debugging
 		response.setContentType("application/json");
 		response.getWriter().append(jsn);

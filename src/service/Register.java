@@ -35,7 +35,7 @@ public class Register extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 	            
-	    DateFormat format = new SimpleDateFormat("MM/DD/YYYY");
+	    DateFormat format = new SimpleDateFormat("MM-DD-YYYY");
 	      
 	    AdresseManager aManager = new AdresseManager();
 	    KundeManager kManager = new KundeManager();
@@ -49,7 +49,7 @@ public class Register extends HttpServlet {
 			}
 		
 	    	response.sendRedirect("login.html");
-		}
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

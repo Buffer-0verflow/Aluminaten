@@ -32,6 +32,19 @@ public class BestellpositionManager {
 		emf.close();
 	}
 	
+	/* NEW */
+	@SuppressWarnings("unchecked")
+	public Collection<Bestellposition> getByKunde(long id) {
+		Query query = em.createQuery("Select bp  "
+				+ "from Bestellposition as bp JOIN bp.bestellung as b JOIN bp.produkt as p"
+				+ " JOIN b.kunde as k WHERE k.id=:kundeID");
+		query.setParameter("kundeID", id);
+		Collection<Bestellposition> bestellungCollection = new ArrayList<Bestellposition>();
+		for (Bestellposition bestellung : (ArrayList<Bestellposition>) query.getResultList())
+			bestellungCollection.add(bestellung);
+		return bestellungCollection;
+	}
+	
 	/*
 	public void updateBestellposition(long id, int menge, String groesse, Bestellung b, Produkt p) {
 		em.getTransaction().begin();

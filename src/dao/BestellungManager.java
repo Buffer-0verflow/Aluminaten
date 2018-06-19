@@ -18,6 +18,7 @@ public class BestellungManager {
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("XX");
 	EntityManager em = emf.createEntityManager();
 	
+	
 	public void insertBestellung(long id, Date bestellzeitpunkt, int status, Kunde k) {
 		em.getTransaction().begin();
 		if(status>1) {
@@ -68,6 +69,7 @@ public class BestellungManager {
 		em.close();
 		emf.close();
 	}
+	
 	
 	
 	@SuppressWarnings("unchecked")

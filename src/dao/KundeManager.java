@@ -60,7 +60,7 @@ public class KundeManager {
 		emf.close();
 	}*/
 	
-	public void updateKunde(long id, String vorname, String nachname, String email, Date geburtstag, String benutzername, String passwort, Adresse adr) {
+	public void updateKunde(long id, String vorname, String nachname, String email, Date geburtstag, String benutzername, String passwort, Long adrID) {
 		em.getTransaction().begin();
 		
 		Kunde kunde = new Kunde();
@@ -71,7 +71,7 @@ public class KundeManager {
 		kunde.setBenutzername(benutzername);
 		kunde.setPasswort(passwort);
 		kunde.setEmail(email);
-		kunde.setAdresse(adr);
+		kunde.setAdresse(em.find(Adresse.class, adrID));
 		
 		Kunde k = em.find(Kunde.class, kunde.getId());
 		if (k == null) {
@@ -81,6 +81,8 @@ public class KundeManager {
 		}
 		
 		em.getTransaction().commit();
+		em.close();
+		emf.close();
 	}
 	
 	
@@ -110,7 +112,9 @@ public class KundeManager {
 	public Kunde findById(long id) {
 		Query query = em.createQuery("Select k from Kunde k where k.id = :id");
 		query.setParameter("id", id);
-		return (Kunde) query.getSingleResult();
+		Kunde k = (Kunde) query.getSingleResult();
+		em.refresh(k);
+		return k;
 	}
 		
 	public Kunde findByUsername(String username) {
