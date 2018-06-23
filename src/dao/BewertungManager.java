@@ -104,4 +104,15 @@ public class BewertungManager {
 			bewCollection.add(bew);
 		return bewCollection;
 	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public Collection<Bewertung> getBewertungByProdukt(Produkt p) {
+		Query query = em.createQuery("Select b from Bewertung b where b.produkt = :produkt");
+		query.setParameter("produkt", p);
+		Collection<Bewertung> bewCollection = new ArrayList<Bewertung>();
+		for(Bewertung bew : (ArrayList<Bewertung>) query.getResultList())
+			bewCollection.add(bew);
+		return bewCollection;
+	}
 }

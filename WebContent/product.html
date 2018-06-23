@@ -18,7 +18,17 @@
     <script type="text/javascript" language="javascript" src="js/scripts.js"></script>
     <script type="text/javascript" language="javascript" src="js/theme.js"></script>
     <script type="text/javascript" language="javascript" src="js/custom.js"></script>
-    <!-- Add your custom script here -->
+    
+   	<script>
+	$( document ).ready(function(){
+		$.getJSON('http://localhost:8080/Aluminaten/Product', function(jd){	
+			jd.forEach(function(item){
+				$('#commentTable').append('<tr><td colspan = 1>' + item["punkte"] + '</td><td colspan = 5>' + item["kommentar"] + '</td></tr>');			
+			});	
+		});
+	});
+	</script>
+      
   </head>
   <body>
     <div id="wrapper">
