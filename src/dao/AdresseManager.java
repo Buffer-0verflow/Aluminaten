@@ -1,9 +1,11 @@
 package dao;
 
 import model.Adresse;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 public class AdresseManager {
 	
@@ -46,7 +48,7 @@ public class AdresseManager {
 		emf.close();
 	}*/
 	
-	public void updateAdresse(long id, String strasse, String plz, String wohnort) {
+	public Long updateAdresse(long id, String strasse, String plz, String wohnort) {
 		em.getTransaction().begin();
 		
 		Adresse adresse = new Adresse();
@@ -64,6 +66,17 @@ public class AdresseManager {
 		}
 		
 		em.getTransaction().commit();
+		Long idR = adresse.getId();
+		em.close();
+		emf.close();
+		return idR;
+		
+	}
+	
+	public Adresse findById(long id) {
+		Query query = em.createQuery("Select k from Adresse k where k.id = :id");
+		query.setParameter("id", id);
+		return (Adresse) query.getSingleResult();
 	}
 	
 	

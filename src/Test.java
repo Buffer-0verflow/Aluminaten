@@ -11,7 +11,11 @@ public class Test {
 		for (Kategorie p : (ArrayList<Kategorie>) manager.listKategorie())
 			System.out.println(p);*/
 		
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> Aluminaten/master
 		
 		
 		

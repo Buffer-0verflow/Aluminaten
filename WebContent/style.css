@@ -1,24 +1,3 @@
-/*
-Theme Name: doTemplate theme
-Theme URI: http://www.dotemplate.com
-Author: doTemplate - Thierry Ruiz
-Author URI: http://www.dotemplate.com
-Description: Website template created with doTemplate online template builder
-Version: 1.0
-Tags: doTemplate, custom-theme, custom-background, custom-colors, custom-header, custom-menu
-*/
-
-
-/*
-----------------------------------------------------------------------------------------
-
-Copyright 2008-2016 - Thierry Ruiz - www.dotemplate.com - All rights reserved.
-
-----------------------------------------------------------------------------------------
-*/
-
-
-/* CSS reset YUI 3.17.2 (build 9c3c78e) - Copyright 2014 Yahoo! Inc. All rights reserved */
 html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}
 table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
 ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,
@@ -1501,4 +1480,10 @@ float:left;
 	width:900px;
 	height:400px;
 	margin:auto;
+}
+#commenttable{
+	width:900px;
+	height:400px;
+	margin:auto;
+=======
 }]
