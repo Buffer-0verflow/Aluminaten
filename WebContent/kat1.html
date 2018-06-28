@@ -30,9 +30,11 @@
 		$.getJSON('http://localhost:8080/Aluminaten/KategorieServlet', function(jd){
 			var index = 0;
 			jd[0].forEach(function(kat){
-				$('#ueberschrift').text(kat.name);
+				$('#kata').append('<h2 style="text-align:center";>' + kat.name + '</h2>');
 				jd[1][index].forEach(function(prod) {
-					$('#page').append('<p>' + prod.name + '</p>');
+					$('#kata').append('<p style="text-align:center";>' + prod.name + '</p>');
+					$('#kata').append('<div class="circular" style="background-image:url('+prod.bildpfad+')></div>');
+					$('#kata').append('<p style="text-align:center";>' +prod.beschreibung + '</p>');
 					
 				})
 				index = index + 1;
@@ -97,9 +99,14 @@
           </div>
           
           
-          
-         
-	    
+         <div id="page" class="home">
+         	<div id="main">
+         		<section>
+			         <div id="kata"></div>
+			    </section>
+			</div>
+		</div>
+	   <!--  	
 	    <div id="page" class="home"> 
             <div id="main"> 
               <section class="home"> 
@@ -143,11 +150,11 @@
                     <div class="circular" style="background-image:url('images/image4.jpg')">
 		    </div>  
                     <p>Dogs Hat</p>  
-                  </div>  -->
+                  </div>
 		  </div>    
               </section> 
 	    </div>
-	    
+	     -->
 	    
 	    	        
 	    <div class="clear" style="height:60px"></div> 
