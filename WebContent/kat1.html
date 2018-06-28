@@ -28,10 +28,16 @@
     <script>
     $( document ).ready(function(){
 		$.getJSON('http://localhost:8080/Aluminaten/KategorieServlet', function(jd){
-			jd[0].forEach(function(item){
-				$('#ueberschrift').text(jd[0].name);
-				
-			})
+			var index = 0;
+			jd[0].forEach(function(kat){
+				$('#ueberschrift').text(kat.name);
+				jd[1][index].forEach(function(prod) {
+					$('#page').append('<p>' + prod.name + '</p>');
+					
+				})
+				index = index + 1;
+			}) 
+			
 		});
 	});
     </script>
@@ -93,24 +99,26 @@
           
           
          
-	   
+	    
 	    <div id="page" class="home"> 
             <div id="main"> 
               <section class="home"> 
                 <header class="headline"> 
-                  <h2 id="ueberschrift">Tierische Begleiter</h2> 
+                  <h2 id="kategoriename">Tierische Begleiter</h2> 
                 </header>  
                 <div class="group wrapper">
 		  <a href="product.html">
                   <div class="col span_1_of_2"> 
                     <header> 
-                      <h2>Hut 1</h2> 
+                      <h2 id="produktname">Hut 1</h2> 
                     </header>  
 		    <div class="circular" style="background-image:url('images/image1.jpg')">
 		    </div>
 		  
-                    <p>Standard Hut</p>   
-                  </div></a>  
+                    <p id="produktbeschreibung">Standard Hut</p>   
+                  </div></a>
+                  
+                  <!--   
                   <div class="col span_1_of_2"> 
                     <header> 
                       <h2>Cats Hat</h2> 
@@ -135,11 +143,11 @@
                     <div class="circular" style="background-image:url('images/image4.jpg')">
 		    </div>  
                     <p>Dogs Hat</p>  
-                  </div>
+                  </div>  -->
 		  </div>    
               </section> 
 	    </div>
-	   
+	    
 	    
 	    	        
 	    <div class="clear" style="height:60px"></div> 
