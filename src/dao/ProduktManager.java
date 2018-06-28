@@ -85,4 +85,11 @@ public class ProduktManager {
 		query.setParameter("name", name);
 		return (Produkt) query.getSingleResult();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public Collection<Produkt> findByKategorie(long id) {
+		Query query = em.createQuery("Select p from Produkt p join p.kategorie k where k.id = :id");
+		query.setParameter("id", id);
+		return query.getResultList();
+	}
 }
