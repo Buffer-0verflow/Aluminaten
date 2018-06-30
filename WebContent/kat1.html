@@ -28,9 +28,10 @@
 			jd[0].forEach(function(kat){
 				$('#kata').append('<h2 style="text-align:center";>' + kat.name + '</h2>');
 				jd[1][index].forEach(function(prod) {
-					$('#kata').append('<p style="text-align:center";>' + prod.name + '</p>');
-					$('#kata').append('<div class="circular" style="background-image:url('+prod.bildpfad+')></div>');
-					$('#kata').append('<p style="text-align:center";>' +prod.beschreibung + '</p>');
+					$('#kata').append('<div><h3 style="text-align:center";>' + prod.name + '</h3>');
+					//$('#kata').append('<div class="circular" style="background-image:url("Aluminaten/WebContent/images/image1.jpg")></div>');
+					$('#kata').append('<p id="click" name='+prod.id+' style="text-align:center";><img src='+prod.bildpfad+' align="middle" width="200"" ></p>');
+					$('#kata').append('<h4 style="text-align:center";>' +prod.beschreibung + '</h4></div>');
 					
 				})
 				index = index + 1;
@@ -38,8 +39,15 @@
 			
 		});
 	});
+    
+    $(document).ready(function(){
+        $('#kata').on("click", "#click", function(){
+            alert($(this).attr('name'));
+        });
+    });
     </script>
     
+
     
      
   </head>
@@ -151,7 +159,6 @@
               </section> 
 	    </div>
 	     -->
-	    
 	    	        
 	    <div class="clear" style="height:60px"></div> 
           </div>  
