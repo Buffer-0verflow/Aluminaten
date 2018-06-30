@@ -42,7 +42,9 @@
     
     $(document).ready(function(){
         $('#kata').on("click", "#click", function(){
-            alert($(this).attr('name'));
+            //alert($(this).attr('name'));
+            var id = $(this).attr('name');
+        	window.location.href = "product.html" + "?" + "id=" + id;
         });
     });
     </script>
