@@ -5,10 +5,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.json.Json;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
-import javax.servlet.ServletException;
+import javax.servlet.ServletException; 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,9 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import dao.KategorieManager;
 import dao.ProduktManager;
 import model.Kategorie;
-import model.Produkt;
 
-/**
+
+/** 
  * Servlet implementation class Kategorie
  */
 @WebServlet("/KategorieServlet")

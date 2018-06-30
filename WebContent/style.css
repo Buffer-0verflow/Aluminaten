@@ -354,6 +354,7 @@ html {
 
 
 
+
 #header {
 	position:relative;
 	width:100%;
@@ -1480,4 +1481,9 @@ float:left;
 	width:900px;
 	height:400px;
 	margin:auto;
+}
+#nano-button{
+	width:300px;
+	height:320px;
+	margin:auto
 }

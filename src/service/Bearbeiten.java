@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.AdresseManager;
 import dao.KundeManager;
 import model.Adresse;
-import model.Bestellposition;
+
 import model.Kunde;
 
 /**
