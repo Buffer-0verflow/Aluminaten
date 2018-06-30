@@ -151,19 +151,31 @@
 		      </tr>
 		  </table>
 		  
-		  <button onclick="bestellungBestaetigung()"><h3>Kostenpflichtig bestellen</h3></button>
+		  	<button id = "bestellen" onclick="bestellungBestaetigung()"><h3>Kostenpflichtig bestellen</h3></button>
 
-		  <script>
-		    function bestellungBestaetigung() {
-		    alert("Vielen Dank! bitte senden sie den genauen Betrag von XXPlazhalterXX an folgende Bitcoin Adresse: XXPlazhalterXX! Ihre Bestellung wird vorbereitet sobald das Geld eingegangen ist!");
-		    }
-		  </script>
-
-
-
-
-
-
+			<div id="nano-button"></div>
+			
+			<script src="https://brainblocks.io/brainblocks.min.js"></script>
+			
+			<script>		
+			function bestellungBestaetigung(){	    
+			    brainblocks.Button.render({
+			        // Pass in payment options
+			        payment: {
+			            destination: 'xrb_1n4u4ow6yq5pmyb4fbbeo56nzi5ausry84j8bfnn4kot1mbaydsgfabp31rk',
+			            currency:    'rai',
+			            amount:      '1000'		
+			        },
+			        // Handle successful payments
+			        onPayment: function(data) {
+			            console.log('Payment successful!', data.token);
+			            alert("Vielen Dank! Ihre Bezahlung wurde erhalten. Die Ware wird bald versandt.");
+			            document.getElementById("bestellen").disabled = true;
+			            window.location.href = 'home.html'
+			        }
+			    }, '#nano-button');
+			}
+			</script>
 
 
 		</header>
