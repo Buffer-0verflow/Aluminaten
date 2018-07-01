@@ -45,6 +45,7 @@
             //alert($(this).attr('name'));
             var id = $(this).attr('name');
         	window.location.href = "product.html" + "?" + "id=" + id;
+        	$.post('http://localhost:8080/Aluminaten/Product', {"id":id});
         });
     });
     </script>

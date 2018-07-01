@@ -48,7 +48,8 @@ public class Product extends HttpServlet {
 		Collection<Bewertung> comments = bManager.getBewertungByProdukt(p);	
 		Produkt interests0 = pManager.findProdById(4001);
 		Produkt interests1 = pManager.findProdById(4002);
-		Produkt prod = pManager.findProdById(id);
+		String id = request.getParameter("id");
+		Produkt prod = pManager.findProdById(Long.parseLong(id));
 		System.out.println(prod);
 		
 		// Produkte und Bewertung in Array speichern
