@@ -3,6 +3,7 @@ package service;
 import java.io.IOException;
 import java.util.Collection;
 
+
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.BewertungManager;
+import dao.ProduktManager;
 import model.Bewertung;
 import model.Produkt;
 
@@ -32,16 +34,40 @@ public class Product extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    
+    ProduktManager pManager = new ProduktManager();
     BewertungManager bManager = new BewertungManager();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		// Array erzeugen
+		Object[] array = new Object[4];
+		
+		
 		Produkt p = null;		// still to fix 
+		
+		
 		Collection<Bewertung> comments = bManager.getBewertungByProdukt(p);	
+		Produkt interests0 = pManager.findProdById(4001);
+		Produkt interests1 = pManager.findProdById(4002);
+		Produkt prod = pManager.findProdById(id);
+		System.out.println(prod);
+		
+		// Produkte und Bewertung in Array speichern
+		array[0] = comments;
+		array[1] = interests0;
+		array[2] = interests1;
+		array[3] = prod;
+		
 		Jsonb jsonb = JsonbBuilder.create();
-		String jsn = jsonb.toJson(comments);
+		
+		// Array in JSON umwandeln
+		String json = jsonb.toJson(array);
+		
+		System.out.println(json);
+		
 		response.setContentType("application/json");
-		response.getWriter().append(jsn);
+		response.getWriter().append(json);
+		
+		
 			
 	}
 
