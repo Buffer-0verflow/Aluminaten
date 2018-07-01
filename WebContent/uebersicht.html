@@ -148,13 +148,13 @@
 		  
 		  	<button id = "bestellen" onclick="bestellungBestaetigung()"><h3>Kostenpflichtig bestellen</h3></button>
 
-			
-			<div id="nano-button">
+					
+			<div id="nano-button"></div>
 			
 			<script src="https://brainblocks.io/brainblocks.min.js"></script>
 			
-			</div>
-			<div>
+			
+
 			<script>		
 			function bestellungBestaetigung(){	    
 			    brainblocks.Button.render({
@@ -168,13 +168,14 @@
 			        onPayment: function(data) {
 			            console.log('Payment successful!', data.token);
 			            alert("Vielen Dank! Ihre Bezahlung wurde erhalten. Die Ware wird bald versandt.");
-			            document.getElementById("bestellen").disabled = true;
-			            window.location.href = 'home.html'
+			            document.getElementById("bestellen").disabled = true;	
+			            window.location.href='profil.html';
 			        }
 			    }, '#nano-button');
 			}
 			</script>
-			</div>
+
+			
 
 		</header>
 	      </section>
