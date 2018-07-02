@@ -67,6 +67,7 @@
 			$('#productImg').append('<img src='+jd[3].bildpfad+' align="middle" width="200"">');
 
 			$('#PID').val(id);
+			$('#PID2').val(id);
 			//$("input[id=PID]").val(id);
 			
 			
@@ -137,16 +138,17 @@
 		    <h3 id="Produktbeschreibung">Beschreibung:</h3>
 		    <h3 id="Produktkategorie">Kategorie: Freizeit/Mode</h3> 
 		    <h3 id="Produktpreis">Preis: 399,00 &euro;</h3>
-			<form action="/action_page.php">
-			  <select name="size" style="font-size:18px">
+		    
+			<form method ="post" action="Wako">
+			  <select name="size" id="size" style="font-size:18px">
 			    <option value="S">S</option>
 			    <option value="M">M</option>
 			    <option value="L">L</option>
 			    <option value="XL">XL</option>
-			  </select>
-			  <a href="warenkorb.html">
-			    <input type="button" value="In den Warenkorb" style="color:black">
-			  </a>
+			  </select> 
+ 			    <input type="hidden" name="PID2" id="PID2" value="">
+			    <p class="submit"><input type="submit" id = "wakobutton" name="wakobutton" value="In den Warenkorb" style="color:black"></p>
+				
 			</form>
 		  </div>
 		</div>

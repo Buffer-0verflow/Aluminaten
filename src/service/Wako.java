@@ -41,15 +41,12 @@ public class Wako extends HttpServlet {
 		// Array erzeugen
 		Object[] array = new Object[1];
 
-		Produkt p = null;		// still to fix 
+		Produkt p = pManager.findProdById(Long.parseLong(request.getParameter("PID2")));
 		
-			
-		Produkt warenkorbTest = pManager.findProdById(4034);
-		
+
 		
 		// Produkte und Bewertung in Array speichern
-		array[0] = warenkorbTest;
-		
+
 		Jsonb jsonb = JsonbBuilder.create();
 		
 		// Array in JSON umwandeln
