@@ -25,10 +25,10 @@
 	<script>
 	
 	$( document ).ready(function(){
-		$.getJSON('http://localhost:8080/Aluminaten/Product', function(jd){
-			$('#wKname').text(jd[1].name);
-			$('#wKbeschreibung').text(jd[1].beschreibung);
-			$('#wKpreis').text(jd[1].preis);
+		$.getJSON('http://localhost:8080/Aluminaten/Wako', function(jd){
+			$('#wKname').text(jd[0].name);
+			$('#wKbeschreibung').text(jd[0].beschreibung);
+			$('#wKpreis').text(jd[0].preis);
 		    
 		});
 	});
@@ -81,11 +81,13 @@
 		    <button class="dropbtn">Home</button>
 		  </a>
 		</div>
-		 <div class="dropdown">
+		<div class="dropdown">
+		  
 		     <a href="kat1.html">
 		   		<button class="dropbtn">Kategorien</button>
 		 	</a>
-		 </div>
+		
+		</div>
 		<div class="dropdown">
 		  <button class="dropbtn">Login</button>
 		  <div class="dropdown-content">
