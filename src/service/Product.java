@@ -3,7 +3,6 @@ package service;
 import java.io.IOException;
 import java.util.Collection;
 
-
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.servlet.ServletException;
@@ -42,8 +41,6 @@ public class Product extends HttpServlet {
 		Object[] array = new Object[4];
 		
 		String id = request.getParameter("id");
-		
-		System.out.println("ID: " + id);
 		
 		Produkt prod = pManager.findProdById(Long.parseLong(id));
 		
