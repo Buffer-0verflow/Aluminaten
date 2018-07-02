@@ -27,13 +27,28 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     
    	<script>
+   	
+   	function GetURLParameter(sParam){
+   		var sPageURL = window.location.search.substring(1);
+   		var sURLVariables = sPageURL.split('?');
+   		for (var i = 0; i < sURLVariables.length; i++) 
+   			{
+   				var sParameterName = sURLVariables[i].split('=');
+   				if (sParameterName[0] == sParam)
+   					{
+   						return sParameterName[1];
+   					}
+   			}
+   	}
+   	
 	$( document ).ready(function(){
-		$.getJSON('http://localhost:8080/Aluminaten/Product', function(jd){	
+		var id = GetURLParameter('id');
+		$.getJSON('http://localhost:8080/Aluminaten/Product', id, function(jd){	
 			jd[0].forEach(function(item){
 				$('#commentTable').append('<tr><td colspan = 1>' + item["punkte"] + '</td><td colspan = 5>' + item["kommentar"] + '</td></tr>');			
 			});
 			
-			
+
 			
 			// Lädt die Namen
 			$('#interestsName0').text(jd[1].name);
@@ -83,14 +98,11 @@
 		    <button class="dropbtn">Home</button>
 		  </a>
 		</div>
-		<div class="dropdown">
-		  <button class="dropbtn">Kategorien</button>
-		  <div class="dropdown-content">
-		    <a href="kat1.html">Freizeit / Mode</a>
-		    <a href="kat2.html">Funktionale Hüte</a>
-		    <a href="kat3.hmtl">Tierische Begleiter</a>
-		  </div>
-		</div>
+		 <div class="dropdown">
+		     <a href="kat1.html">
+		   		<button class="dropbtn">Kategorien</button>
+		 	</a>
+		 </div>
 		<div class="dropdown">
 		  <button class="dropbtn">Login</button>
 		  <div class="dropdown-content">
@@ -128,7 +140,7 @@
 		  <div id="products">
 		    <h2 id="Produktbeschreibung">Beschreibung:</h2>
 		    <h3 id="Produktkategorie">Kategorie: Freizeit/Mode</h3> 
-		    <h3 id="Produktpreis">Preis: 399,00 &euro;<h3>
+		    <h3 id="Produktpreis">Preis: 399,00 &euro;</h3>
 			<form action="/action_page.php">
 			  <select name="size" style="font-size:18px">
 			    <option value="S">S</option>
@@ -154,14 +166,14 @@
 		 <section id="loadcomments" class="container">
 		  <div id="loadcomments" class="rate">
 		  <table id="commentTable">
-					<tr><h3>Bewertung und Kommentare:</h3><tr>
+					<tr><h3>Bewertung und Kommentare:</h3></tr>
 					<tr><td colspan = 1><b>Anzahl Sterne:</b></td><td colspan = 5><b>Kommentar:</b></td></tr>
 					<tr><td colspan = 1>3</td><td colspan = 5>Kommentar-1.. comment..comment..comment..comment..comment..comment..comment..comment..comment..comment..comment..comment..</td></tr>
 					<tr><td colspan = 1>5</td><td colspan = 5>Kommentar-2</td></tr>			
 		  </table>
 
 
-			  <h3>Bewertung/Kommentar hinzufügen:</h1>
+			  <h3>Bewertung/Kommentar hinzufügen:</h3>
 			  <select name="Rating" style="font-size:18px">
 			    <option value="1">1</option>
 			    <option value="3">3</option>

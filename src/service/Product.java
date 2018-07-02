@@ -41,15 +41,16 @@ public class Product extends HttpServlet {
 		// Array erzeugen
 		Object[] array = new Object[4];
 		
+		String id = request.getParameter("id");
 		
-		Produkt p = null;		// still to fix 
+		System.out.println("ID: " + id);
 		
+		Produkt prod = pManager.findProdById(Long.parseLong(id));
 		
-		Collection<Bewertung> comments = bManager.getBewertungByProdukt(p);	
+		Collection<Bewertung> comments = bManager.getBewertungByProdukt(prod);	
 		Produkt interests0 = pManager.findProdById(4001);
 		Produkt interests1 = pManager.findProdById(4002);
-		String id = request.getParameter("id");
-		Produkt prod = pManager.findProdById(Long.parseLong(id));
+
 		System.out.println(prod);
 		
 		// Produkte und Bewertung in Array speichern
