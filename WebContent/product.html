@@ -34,7 +34,7 @@
 	$( document ).ready(function(){
 		var id = GetURLParameter('id');
 		
-		console.log('TEST ID: ' +id);
+		//console.log('TEST ID: ' +id);
 		$.getJSON('http://localhost:8080/Aluminaten/Product', {id: id}, function(jd){	
 			jd[0].forEach(function(item){
 				$('#commentTable').append('<tr><td colspan = 1>' + item["punkte"] + '</td><td colspan = 5>' + item["kommentar"] + '</td></tr>');			
@@ -66,6 +66,10 @@
 			$('#Produktpreis').text(jd[3].preis);
 			$('#productImg').append('<img src='+jd[3].bildpfad+' align="middle" width="200"">');
 
+			$('#PID').val(id);
+			//$("input[id=PID]").val(id);
+			
+			
 		});
 	});
 	</script>
@@ -159,24 +163,26 @@
 		  <div id="loadcomments" class="rate">
 		  <table id="commentTable">
 					<tr><h3>Bewertung und Kommentare:</h3></tr>
-					<tr><td colspan = 1><b>Anzahl Sterne:</b></td><td colspan = 5><b>Kommentar:</b></td></tr>
-					<tr><td colspan = 1>3</td><td colspan = 5>Kommentar-1.. comment..comment..comment..comment..comment..comment..comment..comment..comment..comment..comment..comment..</td></tr>
-					<tr><td colspan = 1>5</td><td colspan = 5>Kommentar-2</td></tr>			
+					<tr><td colspan = 1><b>Anzahl Sterne:</b></td><td colspan = 5><b>Kommentar:</b></td></tr>	
 		  </table>
 
 
 			  <h3>Bewertung/Kommentar hinzufügen:</h3>
-			  <select name="Rating" style="font-size:18px">
+			  <form method="post" action="Rate">
+			  <select id = "Rating" name="Rating" style="font-size:18px">
 			    <option value="1">1</option>
-			    <option value="3">3</option>
 			    <option value="2">2</option>
+			    <option value="3">3</option>
 			    <option value="4">4</option>
 			    <option value="5">5</option>
 			  </select>
 			  
-			  <form method="post" action="Rate">
-				<textarea id="comment" name="text" cols="35" rows="4" maxlength="1000"> required</textarea>
-				<p class="submit"><input type="submit" name="commit" value="Senden"></p>
+			  
+				<textarea id="comment" name="text" cols="35" rows="4" maxlength="1000" placeholder="required"> </textarea>
+				<p class="submit"><input type="submit" id = "submitbutton" name="commit" value="Senden"></p>
+				<input type="hidden" name="PID" id="PID" value="">
+			
+
 			  </form>
 			</div>
 		  </section>

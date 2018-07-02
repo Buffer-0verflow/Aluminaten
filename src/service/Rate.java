@@ -34,21 +34,27 @@ public class Rate extends HttpServlet {
         	      
 	    BewertungManager bManager = new BewertungManager();
 	    KundeManager kManager = new KundeManager();
-	    
-	    Cookie[] cookies = request.getCookies();
+	    ProduktManager pManager = new ProduktManager();
 
 	    
-		Kunde kunde = kManager.findById(Long.parseLong(cookies[0].getValue()));
-	    Produkt p = null;
-	    
-	    try {	    	
-	    	bManager.insertBewertung(getNextID(bManager), Integer.parseInt(request.getParameter("Rating")), 
-	    			request.getParameter("Comment"), getTime(), kunde, p);	   	
-	    	} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	    response.sendRedirect("home.html");
+	    Cookie[] cookies = request.getCookies();
+	    if (!cookies[0].getValue().isEmpty()) {
+	    	
+	    	Kunde kunde = kManager.findById(Long.parseLong(cookies[0].getValue()));
+	    	Produkt prod = pManager.findProdById(Long.parseLong(request.getParameter("PID")));
+
+	    	
+	    	int rating = Integer.parseInt(request.getParameter("Rating"));
+	    	
+		    try {	    	
+		    	bManager.insertBewertung(getNextID(bManager),rating, 
+		    			request.getParameter("text"), getTime(), kunde, prod);	   	
+		    	} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		    response.sendRedirect("home.html");
+	    }
 	}
 
 	/**
