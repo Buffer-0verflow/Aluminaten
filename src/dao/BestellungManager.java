@@ -55,7 +55,8 @@ public class BestellungManager {
 		}
 		
 		em.getTransaction().commit();
-		
+		em.close();
+		emf.close();		
 	}
 	
 	

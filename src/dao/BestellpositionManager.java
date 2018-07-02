@@ -89,6 +89,8 @@ public class BestellpositionManager {
 		}
 		
 		em.getTransaction().commit();
+		em.close();
+		emf.close();
 	}
 	
 	public void deleteBestellposition(long id) {

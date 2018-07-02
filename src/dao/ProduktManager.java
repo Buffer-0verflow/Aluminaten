@@ -26,6 +26,10 @@ public class ProduktManager {
 		prod.setPreis(preis);
 		prod.setBildpfad(bildpfad);
 		prod.setKategorie(k);
+		
+		em.persist(prod);
+		em.close();
+		emf.close();
 	}
 	
 	
@@ -47,6 +51,8 @@ public class ProduktManager {
 			em.merge(prod);
 		}
 		em.getTransaction().commit();
+		em.close();
+		emf.close();
 	}
 	
 	

@@ -44,6 +44,8 @@ public class KategorieManager {
 		}
 		
 		em.getTransaction().commit();
+		em.close();
+		emf.close();
 	}
 	
 	
