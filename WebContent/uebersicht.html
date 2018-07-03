@@ -15,9 +15,28 @@
     <meta name="MSSmartTagsPreventParsing" content="true" />
     <link id="theme" rel="stylesheet" type="text/css" href="style.css" title="theme" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans+Condensed:300|Roboto+Condensed|Open+Sans+Condensed:300italic|Roboto+Condensed:300|Lora:400italic" type="text/css" />
-
-
   </head>
+      
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+	
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> 
+  
+  <script>
+  $( document ).ready(function(){
+		$.getJSON('http://localhost:8080/Aluminaten/Wako', function(jd){
+			$('#wKname').text(jd[0].name);
+			$('#wKbeschreibung').text(jd[0].beschreibung);
+			$('#wKpreis').text(jd[0].preis);
+		    
+		});
+	});  
+  </script>
+  
+  
+  
+  
   <body>
     <div id="wrapper">
       <div class="bg"></div>
@@ -88,38 +107,30 @@
 		      <td></td>
 		    </tr>
 		    <tr>
-		      <td>Standard-Hut</td>
-		      <td>Der Klassiker. Nie Falsch!</td>
+		      <td id="wKname"></td>
+		      <td><p id="wKbeschreibung"></p></td>
 		      <td>
-			 Anzahl: 100 / Grösse: M
+			 Anzahl: 5 / Grösse: S
 		      </td>
-		      <td>399,99</td>
-		      <td>1599,96</td>
+		      <td>152,12</td>
+		      <td>766,6</td>
 		    </tr>
-		    <tr>
-		      <td>Kinder-Hut</td>
-		      <td>Von klein auf sicher!</td>
-		      <td>
-			  Anzahl : 100 / Grösse: M
-		      </td>
-		      <td>19,99</td>
-		      <td>19,99</td>
-		    </tr>
+		    
 		    <tr>
 		      <td></td>
 		      <td></td>
 		      <td></td>
 		      <td></td>
 		      <td>
-    			<h4>Preis Gesamt: 1619,95 €</h4>
-			<h4>incl. MwSt (19,0%): 307,79 €</h4>
+    			<h4>Preis Gesamt: 760,6 €</h4>
+			<h4>incl. MwSt (19,0%): 905,11 €</h4>
 		    </tr>
 		    <tr>
 		      <td></td>
 		      <td></td>
 		      <td></td>
 		      <td></td>
-		      <td><h4>Zu bezahlen : 1927,74 €</h4></td>
+		      <td><h4>Zu bezahlen : 905,11 €</h4></td>
 		    </tr>
 
 		  </table>
