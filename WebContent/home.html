@@ -14,7 +14,21 @@
     <meta name="MSSmartTagsPreventParsing" content="true" />  
     <link id="theme" rel="stylesheet" type="text/css" href="style.css" title="theme" />  
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans+Condensed:300|Roboto+Condensed|Open+Sans+Condensed:300italic|Roboto+Condensed:300|Lora:400italic" type="text/css" />  
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <!-- Add your custom script here --> 
+
+	<script>
+	$( document ).ready(function(){
+		$.getJSON('http://localhost:8080/Aluminaten/Home', function(jd){
+			$('#header1').text(jd[0].name);
+			$('#append').append('<a href="product.html?id=4000"><img id="img1" src='+jd[0].bildpfad+' align="middle" width="200"></a>')
+			$('#append').append('<p id="p1">'+jd[0].beschreibung+'</p> ')
+			$('#header2').text(jd[0].name);
+			$('#append2').append('<a href="product.html?id=4000"><img id="img1" src='+jd[1].bildpfad+' align="middle" width="200"></a>')
+			$('#append2').append('<p id="p1">'+jd[1].beschreibung+'</p> ')
+		});
+	});
+</script>
 
   </head>  
   <body> 
@@ -72,23 +86,14 @@
                 </header>  
                 <div class="group wrapper"> 
                   <div class="col span_1_of_2"> 
-                    <header> 
-                      <h2>Sportlerhut</h2> 
+                    <header id="append"> 
+                      <h2 id="header1">Sportler</h2> 
                     </header>  
-		    <a href="product.html?id=4000">
-		      <div class="circular" style="background-image:url('images/image1.jpg')"></div>
-		      </a>
-                    <p>Hut für die sportlichen unter euch!</p>   
                   </div>  
                   <div class="col span_1_of_2"> 
-                    <header> 
-                      <h2>Modehut</h2> 
-                    </header>
-		    <a href="product.html?id=4001">
-			<div class="circular" style="background-image:url('images/image2.jpg')"></div>
-		    </a>
-			
-                    <p>Hut für die modischen unter euch!</p>  
+                    <header id="append2"> 
+                      <h2 id=header2>Modehut</h2> 
+                    </header> 
                   </div> 
                 </div>  
 		<header id="bestrated" class="headline">

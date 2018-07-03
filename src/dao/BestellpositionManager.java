@@ -45,6 +45,12 @@ public class BestellpositionManager {
 		return bestellungCollection;
 	}
 	
+	public Bestellposition findById(long id) {
+		Query query = em.createQuery("Select k from Bestellposition k where k.id = :id");
+		query.setParameter("id", id);
+		return (Bestellposition) query.getSingleResult();
+	}
+	
 	/*
 	public void updateBestellposition(long id, int menge, String groesse, Bestellung b, Produkt p) {
 		em.getTransaction().begin();
